@@ -14,4 +14,4 @@
 	
 	document.getElementById("separator3").innerHTML ='<div class="tags"><p><span>الجودة :</span><a href="'+ homePage +'+ quality +'">'+ quality +'</a></p><p><span>القسم :</span> <a expr:href="data:label.url"><data:label.name/></a></p><p><span>السنة :</span><a href="'+ homePage +''+ year + '">'+ year +'</a></p><p><span>النوع :</span><a href="'+ homePage +''+ types +'">'+ types +'</a><a class="imdbICon" target="_blank" href="'+ imdb +'"><i class="fa fa-film"></i> IMDB</a><a class="showTrailer" target="_blank" href="'+ yutb +'"><i class="fa fa-youtube-play"></i> مشاهدة الاعلان</a></div>';
 	
-	
+	};
