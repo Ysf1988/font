@@ -1,4 +1,43 @@
 //lates post اخر المشاركات
-function showlatestpostswiththumbs(t){document.write(&#39;&lt;ul class=&quot;recent-posts-container&quot;&gt;&#39;);for(var e=0;e&lt;posts_no;e++){var r,n=t.feed.entry[e],i=n.title.$t;if(e==t.feed.entry.length)break;for(var o=0;o&lt;n.link.length;o++){if(&quot;replies&quot;==n.link[o].rel&amp;&amp;&quot;text/html&quot;==n.link[o].type)var l=n.link[o].title,m=n.link[o].href;if(&quot;alternate&quot;==n.link[o].rel){r=n.link[o].href;break}}var u;try{u=n.media.url}catch (h) {
-            s = n.content.$t, a = s.indexOf(&quot;&lt;img&quot;), b = s.indexOf(&#39;src=&quot;&#39;, a), c = s.indexOf(&#39;&quot;&#39;, b + 5), d = s.substr(b + 5, c - b - 5), u = -1 != a &amp;&amp; -1 != b &amp;&amp; -1 != c &amp;&amp; &quot;&quot; != d ? d : &quot;http://2.bp.blogspot.com/-C3Mo0iKKiSw/VGdK808U7rI/AAAAAAAAAmI/W7Ae_dsEVAE/s1600/no-thumb.png&quot;
-        }var p=n.published.$t,f=p.substring(0,4),g=p.substring(5,7),v=p.substring(8,10),w=new Array;if(w[1]=&quot;Jan&quot;,w[2]=&quot;Feb&quot;,w[3]=&quot;Mar&quot;,w[4]=&quot;Apr&quot;,w[5]=&quot;May&quot;,w[6]=&quot;Jun&quot;,w[7]=&quot;Jul&quot;,w[8]=&quot;Aug&quot;,w[9]=&quot;Sep&quot;,w[10]=&quot;Oct&quot;,w[11]=&quot;Nov&quot;,w[12]=&quot;Dec&quot;,document.write(&#39;&lt;li class=&quot;recent-posts-list&quot;&gt;&#39;),1==showpoststhumbs&amp;&amp;document.write(&#39;&lt;a href=&quot;&#39;+r+&#39;&quot;&gt;&lt;img class=&quot;recent-post-thumb&quot; src=&quot;&#39;+u+&#39;&quot;/&gt;&lt;/a&gt;&#39;),document.write(&#39;&lt;div class=&quot;recent-post-title&quot;&gt;&lt;a href=&quot;&#39;+r+&#39;&quot; target =&quot;_top&quot;&gt;&#39;+i+&quot;&lt;/a&gt;&lt;/div&gt;&quot;),&quot;content&quot;in n)var A=n.content.$t;else if(&quot;summary&quot;in n)var A=n.summary.$t;else var A=&quot;&quot;;var k=/&lt;\S[^&gt;]*&gt;/g;if(A=A.replace(k,&quot;&quot;),1==post_summary)if(A.length&lt;summary_chars)document.write(A);else{A=A.substring(0,summary_chars);var y=A.lastIndexOf(&quot; &quot;);A=A.substring(0,y),document.write(A+&quot;...&quot;)}var _=&quot;&quot;,$=0;document.write(&#39;&lt;br&gt;&lt;div class=&quot;recent-posts-details&quot;&gt;&#39;),1==posts_date&amp;&amp;(_=_+w[parseInt(g,10)]+&quot; &quot;+v+&quot; &quot;+f,$=1),1==readmorelink&amp;&amp;(1==$&amp;&amp;(_+=&quot; | &quot;),_=_+&#39;&lt;a href=&quot;&#39;+r+&#39;&quot; class=&quot;url&quot; target =&quot;_top&quot;&gt;Read more&lt;/a&gt;&#39;,$=1),1==showcommentslink&amp;&amp;(1==$&amp;&amp;(_+=&quot; &lt;br&gt; &quot;),&quot;1 Comments&quot;==l&amp;&amp;(l=&quot;1 Comment&quot;),&quot;0 Comments&quot;==l&amp;&amp;(l=&quot;No Comments&quot;),l=&#39;&lt;a href=&quot;&#39;+m+&#39;&quot; target =&quot;_top&quot;&gt;&#39;+l+&quot;&lt;/a&gt;&quot;,_+=l,$=1),document.write(_),document.write(&quot;&lt;/div&gt;&quot;),document.write(&quot;&lt;/li&gt;&quot;)}document.write(&quot;&lt;/ul&gt;&quot;)}
+function showlatestpostswiththumbs(t) {
+		    document.write('<ul class="recent-posts-container">');
+		    for (var e = 0; e < posts_no; e++) {
+		        var r, n = t.feed.entry[e],
+		            i = n.title.$t;
+		        if (e == t.feed.entry.length) break;
+		        for (var o = 0; o < n.link.length; o++) {
+		            if ("replies" == n.link[o].rel && "text/html" == n.link[o].type) var l = n.link[o].title,
+		                m = n.link[o].href;
+		            if ("alternate" == n.link[o].rel) {
+		                r = n.link[o].href;
+		                break
+		            }
+		        }
+		        var u;
+		        try {
+		            u = n.media.url
+		        } catch (h) {
+		            s = n.content.$t, a = s.indexOf("<img"), b = s.indexOf('src="', a), c = s.indexOf('"', b + 5), d = s.substr(b + 5, c - b - 5), u = -1 != a && -1 != b && -1 != c && "" != d ? d : "http://2.bp.blogspot.com/-C3Mo0iKKiSw/VGdK808U7rI/AAAAAAAAAmI/W7Ae_dsEVAE/s1600/no-thumb.png"
+		        }
+		        var p = n.published.$t,
+		            f = p.substring(0, 4),
+		            g = p.substring(5, 7),
+		            v = p.substring(8, 10),
+		            w = new Array;
+		        if (w[1] = "Jan", w[2] = "Feb", w[3] = "Mar", w[4] = "Apr", w[5] = "May", w[6] = "Jun", w[7] = "Jul", w[8] = "Aug", w[9] = "Sep", w[10] = "Oct", w[11] = "Nov", w[12] = "Dec", document.write('<li class="recent-posts-list">'), 1 == showpoststhumbs && document.write('<a href="' + r + '"><img class="recent-post-thumb" src="' + u + '"/></a>'), document.write('<div class="recent-post-title"><a href="' + r + '" target ="_top">' + i + "</a></div>"), "content" in n) var A = n.content.$t;
+		        else if ("summary" in n) var A = n.summary.$t;
+		        else var A = "";
+		        var k = /<\S[^>]*>/g;
+		        if (A = A.replace(k, ""), 1 == post_summary)
+		            if (A.length < summary_chars) document.write(A);
+		            else {
+		                A = A.substring(0, summary_chars);
+		                var y = A.lastIndexOf(" ");
+		                A = A.substring(0, y), document.write(A + "...")
+		            }
+		        var _ = "",
+		            $ = 0;
+		        document.write('<br><div class="recent-posts-details">'), 1 == posts_date && (_ = _ + w[parseInt(g, 10)] + " " + v + " " + f, $ = 1), 1 == readmorelink && (1 == $ && (_ += " | "), _ = _ + '<a href="' + r + '" class="url" target ="_top">Read more</a>', $ = 1), 1 == showcommentslink && (1 == $ && (_ += " <br> "), "1 Comments" == l && (l = "1 Comment"), "0 Comments" == l && (l = "No Comments"), l = '<a href="' + m + '" target ="_top">' + l + "</a>", _ += l, $ = 1), document.write(_), document.write("</div>"), document.write("</li>")
+		    }
+		    document.write("</ul>")
+		}
