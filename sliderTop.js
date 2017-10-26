@@ -1,4 +1,4 @@
-
+function sliderToppagePostMessage() {
 	;(function($){
 	var scrollbarNumber=0;
 	var xScrollDistance=0;
@@ -257,8 +257,9 @@ $(function() {
           duration        : 1500,
           pauseOnHover : true
           
-        }         
+        };
+
   });
 });
 
-
+  };
